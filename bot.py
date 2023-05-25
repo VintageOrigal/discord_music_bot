@@ -69,6 +69,6 @@ def pause_song():
 async def main():
     async with client:
         await load()
-        await client.start("MTExMDUxMDM0NDU5OTc4NTUzNA.GDea_H.Z1wKDzPjBZZ_0ram_XhkFduTbcOcPBo0Ph2_FU")
+        await client.start("MTExMDUxMDM0NDU5OTc4NTUzNA.GxMiHi.mkdFwgLss3_FUNNMAVt71jOlZNxGX_EKFjKHyE")
 
 asyncio.run(main())
