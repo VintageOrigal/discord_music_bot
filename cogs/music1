@@ -1,0 +1,32 @@
+import discord
+from discord.ext import commands
+
+client = commands.Bot(command_prefix='!', intents=intent)
+
+class Music(commands.Cog):
+    def __init__(self, client):
+        self.client = client
+
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print ("Music.py is ready!")
+    
+    @client.command(pass_context = True)
+    async def join(ctx):
+        channel = ctx.message.author.voice.voice_channel
+        await client.join_voice_channel(channel)
+    
+    @commands.command()
+    async def leave(self, ctx):
+        await ctx.voice_client.disconnect()
+
+    @commands.command()
+    async def play(self, ctx, *, query):
+        await ctx.send(f"Playing {query}!")
+
+    @commands.command()
+    async def stop(self, ctx):
+        await ctx.send(f"Stopping the music!")
+
+async def setup(client):
+    await client.add_cog(Music(client))
